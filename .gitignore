@@ -1,0 +1,10 @@
+# 依赖与构建产物（体积大，不入库）
+.deps/
+build/
+dist/
+__pycache__/
+*.pyc
+*.log
+
+# 工作区个人数据
+.workbuddy/
