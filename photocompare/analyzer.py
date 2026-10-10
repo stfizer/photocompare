@@ -273,14 +273,19 @@ def _masked_mse_ch(out, ref, region=None):
 
 
 def _fit_tone_lut_iter(src: np.ndarray, ref: np.ndarray, npts: int = 9,
-                       rounds: int = 3, smooth_w: float = 2e-4, region=None):
+                       rounds: int = 3, smooth_w: float = 2e-4, region=None,
+                       init: dict | None = None):
     """策略一：迭代版 tone 曲线（控制点坐标下降）。
+    init: 初始曲线（如分位数匹配结果）——好初值下迭代收敛到更优解。
     MSE 粗筛候选 + ΔE00 复评（MSE 最优≠感知最优，同主搜索的教训）。"""
     xs = np.linspace(0.0, 1.0, npts)
     lab_ref = metrics.srgb_to_lab(ref)
     src_c = np.clip(src, 0, 1)
 
     cur = {"xs": xs, "R": xs.copy(), "G": xs.copy(), "B": xs.copy()}
+    if init is not None:
+        for k in "RGB":
+            cur[k] = np.interp(xs, init["xs"], init[k]).astype(np.float64)
 
     def de_with(key, y):
         trial = dict(cur)
@@ -347,8 +352,8 @@ def _quantile_tone_lut(src: np.ndarray, ref: np.ndarray, npts: int, region=None)
 
 
 def _fit_tone_lut(src: np.ndarray, ref: np.ndarray, region=None):
-    """残差 tone 曲线总调度：迭代版 + 分位数多档 各拟一版，
-    统一过收益门槛（应用后 dE 须改善 ≥2%），选 dE 最低者。"""
+    """残差 tone 曲线总调度：多策略候选池（迭代9点 / 分位初值+迭代17/33 /
+    分位数多档），统一过收益门槛（应用后 dE 须改善 ≥2%），选 dE 最低者。"""
     src_c = np.clip(src, 0, 1)
     ref_c = np.clip(ref, 0, 1)
     lab_ref = metrics.srgb_to_lab(ref_c)
@@ -361,6 +366,15 @@ def _fit_tone_lut(src: np.ndarray, ref: np.ndarray, region=None):
     lut_i = _fit_tone_lut_iter(src_c, ref_c, region=region)
     if lut_i:
         cands.append(lut_i)
+    # 分位数初值 + 迭代精修：好初值让迭代收敛到更优解（实测显著优于恒等初值）
+    for npts, rounds in ((17, 3), (33, 2)):
+        lq = _quantile_tone_lut(src_c, ref_c, npts, region=region)
+        if lq:
+            cands.append(lq)
+            lqi = _fit_tone_lut_iter(src_c, ref_c, npts=npts, rounds=rounds,
+                                     region=region, init=lq)
+            if lqi:
+                cands.append(lqi)
     for npts in (9, 17, 25, 33):
         lut_q = _quantile_tone_lut(src_c, ref_c, npts, region=region)
         if lut_q:

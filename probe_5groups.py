@@ -10,19 +10,19 @@ from photocompare import analyzer, metrics
 PAIRS = [
     ("组1 凯奇超人",
      r"C:\Users\stfizer\Desktop\尼古拉斯凯奇超人.jpg",
-     r"C:\Users\stfizer\Desktop\尼古拉斯凯奇超人-p过.jpg"),
+     r"C:\Users\stfizer\.workbuddy\blobs\be\be4094e035fa6a66aa0b7841c9c6b8de55dabec30a68d367bfd4e16c34549afd.jpg"),
     ("组2 女演员",
      r"C:\Users\stfizer\Desktop\女超人演员.jpg",
-     r"C:\Users\stfizer\Desktop\女超人演员-p过.jpg"),
+     r"C:\Users\stfizer\.workbuddy\blobs\91\91de90e5cdf8768800cef26d7f5f308040d457bd27c914df4a34260a0e43a4e2.jpg"),
     ("组3 COS(108)",
      r"C:\Users\stfizer\.workbuddy\clipboard-images\clipboard-2026-10-05T04-39-48-363Z-2d4f07e8.jpg",
      r"C:\Users\stfizer\.workbuddy\clipboard-images\clipboard-2026-10-05T04-39-48-365Z-0e0d772d.jpg"),
     ("组4 合照(110)",
-     r"C:\Users\stfizer\Desktop\微信图片_20261004001109_110_3.jpg",
-     r"C:\Users\stfizer\Desktop\微信图片_20261004001109_110_3-p过.jpg"),
+     r"C:\Users\stfizer\.workbuddy\blobs\bc\bc8abd40314ec0d688987a7295d9d28449e9ece2e92c129750fb60ef20c94c59.jpg",
+     r"C:\Users\stfizer\.workbuddy\blobs\bd\bd96045a9869a001edaa3e75178696c5db036d210d04d459401d52252f6ee001.jpg"),
     ("组5 train报点",
      r"C:\Users\stfizer\Desktop\train报点.jpg",
-     r"C:\Users\stfizer\Desktop\train报点-p过.jpg"),
+     r"C:\Users\stfizer\.workbuddy\blobs\9b\9b840e53a40364d5e0c7c51720737d84f0c39a1ac83b911713d0695c30a69ce3.jpg"),
 ]
 
 
