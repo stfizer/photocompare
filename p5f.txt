@@ -1,0 +1,39 @@
+F:\workbuddy空间任务\修图对比器\probe_5groups.py:53: RankWarning: Polyfit may be poorly conditioned
+  k, b = np.polyfit(la[m], lb[m], 1)
+F:\workbuddy空间任务\修图对比器\probe_5groups.py:53: RankWarning: Polyfit may be poorly conditioned
+  k, b = np.polyfit(la[m], lb[m], 1)
+
+===== 组1 凯奇超人 =====
+[894×1200px -> 894×1200px] dE=5.32 luma 0.4006->0.3951 std 0.3454->0.3914
+  通道均值差 R-0.002 G-0.007 B-0.005 | 正向斜率 k=1.156 b=-0.063 反向 k=0.843 | jpeg块 A=1.571 B=1.500
+  RGB-LUT上限 dE=1.77 (基线 5.32)
+  检出: {'exposure': -0.041, 'contrast': 0.3, 'shadows': 0.171, 'gamma': 0.183, 'bloom': 0.095}
+  拟合: dE 5.32->1.90 (降消 64%)
+
+===== 组2 女演员 =====
+[1080×1620px -> 1080×1620px] dE=4.63 luma 0.4508->0.4949 std 0.2187->0.2299
+  通道均值差 R+0.037 G+0.044 B+0.065 | 正向斜率 k=1.043 b=+0.025 反向 k=0.953 | jpeg块 A=1.146 B=1.218
+  RGB-LUT上限 dE=0.98 (基线 4.63)
+  检出: {'exposure': 0.135, 'shadows': 0.372, 'temperature': -0.135, 'tint': 0.057, 'vibrance': -0.047, 'sharpen': 0.125}
+  拟合: dE 4.63->1.18 (降消 74%)
+
+===== 组3 COS(108) =====
+[1080×1616px -> 1080×1616px] dE=6.88 luma 0.3152->0.3694 std 0.3023->0.3211
+  通道均值差 R+0.079 G+0.051 B+0.018 | 正向斜率 k=1.117 b=+0.027 反向 k=0.872 | jpeg块 A=1.289 B=1.276
+  RGB-LUT上限 dE=1.94 (基线 6.88)
+  检出: {'exposure': 0.367, 'temperature': 0.119, 'tint': -0.124, 'vibrance': 0.21}
+  拟合: dE 6.88->2.59 (降消 62%)
+
+===== 组4 合照(110) =====
+[1440×2558px -> 1440×2558px] dE=4.91 luma 0.4390->0.4682 std 0.2726->0.2968
+  通道均值差 R+0.023 G+0.029 B+0.046 | 正向斜率 k=1.092 b=-0.011 反向 k=0.914 | jpeg块 A=0.999 B=1.000
+  RGB-LUT上限 dE=1.41 (基线 4.91)
+  检出: {'exposure': 0.11, 'shadows': 0.057, 'temperature': -0.283, 'vibrance': 0.241, 'clarity': 0.074, 'bloom': 0.214}
+  拟合: dE 4.91->1.49 (降消 70%)
+
+===== 组5 train报点 =====
+[1767×1608px -> 1767×1608px] dE=6.81 luma 0.3176->0.3613 std 0.1567->0.2074
+  通道均值差 R+0.035 G+0.047 B+0.041 | 正向斜率 k=0.576 b=+0.204 反向 k=0.430 | jpeg块 A=1.101 B=1.158
+  RGB-LUT上限 dE=1.87 (基线 6.81)
+  检出: {'exposure': 0.894, 'contrast': -0.253, 'gamma': -0.888, 'temperature': -0.074, 'tint': -0.057, 'vibrance': 0.094, 'clarity': -0.074, 'sharpen': 0.125}
+  拟合: dE 6.81->2.14 (降消 69%)
